@@ -1,0 +1,111 @@
+.whatsapp {
+    background: #25d325 !important;
+  }
+  
+  .instagram {
+    background: hsl(228, 82%, 76%);
+    background: linear-gradient(
+      45deg,
+      #405de6,
+      #5851db,
+      #833ab4,
+      #c13584,
+      #e1306c,
+      #fd1d1d
+    );
+  }
+  
+  .facebook {
+    background: #2b4170;
+    background: linear-gradient(to bottom, #3b5998, #2b4170);
+  }
+  /* ///////////////////////////////////////////////////////////// */
+  /* ICONS */
+  
+  .whatsapp_icon {
+    background: #25d325 !important;
+    color: #fff;
+    transition: 0.3s;
+  
+  }
+
+  .whatsapp_icon:hover {
+    color: #25d325;
+    background: rgb(25, 24, 24) !important;
+    
+    }
+  
+  .instagram_icon {
+    transition: 0.3s;
+    color: #fff;
+    background: hsl(228, 82%, 76%);
+    background: linear-gradient(
+      45deg,
+      #405de6,
+      #5851db,
+      #833ab4,
+      #c13584,
+      #e1306c,
+      #fd1d1d
+    );
+  
+  }
+  
+  .instagram_icon:hover {
+    color: #e1306c;
+    background: rgb(25, 24, 24);
+  
+  }
+  
+  .facebook_icon {
+    transition: 0.3s;
+    color: #fff;
+    background: #2b4170;
+    
+  }
+  
+  .facebook_icon:hover {
+    width: 35px;
+    height: 35px;
+    border-radius: 9px;
+    color: #466bb9;
+    background: black;
+  
+  }
+  
+  .whatsapp_icon, .facebook_icon , .instagram_icon {
+    border-radius: 9px;
+    -webkit-animation: iconShow 1.2s ease-in-out alternate !important;
+    -moz-animation: iconShow 1.2s ease-in-out alternate !important;
+    animation: iconShow 1.2s ease-in-out alternate !important;
+  }
+  :hover.whatsapp_icon, :hover.facebook_icon , :hover.instagram_icon {
+    border-width: 3px;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .phone {
+    background: hsl(228, 82%, 76%);
+    background: #2b4170;
+
+  }
+  
+
+  @keyframes iconShow {
+    0% {
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      transform: scale(0);
+    }
+    50% {
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      transform: scale(0);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      transform: scale(1);
+    }
+  }
