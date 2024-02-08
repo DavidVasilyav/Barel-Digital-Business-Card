@@ -5,119 +5,79 @@ import { Box, Button } from "@mui/material";
 import Image from "next/image";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+import "./styles.css";
+const animation = { duration: 20000, easing: (t) => t };
 
-export default function GalleryImage({ imgs, width,height, arrow }) {
+export default function GalleryImage({ imgs, width, height, arrow }) {
   const [index, setIndex] = useState(1);
   const [index2, setIndex2] = useState(1);
-  const [showArrow, setArrow] = useState(arrow);
+  const [sliderRef, instanceRef] = useKeenSlider(
+    {
+      loop: true,
+    },
+    [
+      (slider) => {
+        let timeout;
+        let mouseOver = false;
+        function clearNextTimeout() {
+          clearTimeout(timeout);
+        }
+        function nextTimeout() {
+          clearTimeout(timeout);
+          if (mouseOver) return;
+          timeout = setTimeout(() => {
+            slider.next();
+          }, 2000);
+        }
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true;
+            clearNextTimeout();
+          });
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false;
+            nextTimeout();
+          });
+          nextTimeout();
+        });
+        slider.on("dragStarted", clearNextTimeout);
+        slider.on("animationEnded", nextTimeout);
+        slider.on("updated", nextTimeout);
+      },
+    ]
+  );
 
   const img = Object.keys(imgs);
-  const changeIndex = () => {
-    if (index === 3) {
-      setTimeout(() => {
-        setIndex2(1)
-        setIndex(1)
-      }, 4000);
-      return;
-    } else {
-      setTimeout(() => {
-        setIndex2(index2 + 1);
-        setIndex(index2);
-      }, 1500);
-    }
-  };
 
-  const next = () => {
-    switch (index) {
-      case 1:
-        setIndex(2);
-        break;
-      case 2:
-        setIndex(3);
-        break;
-      case 3:
-        setIndex(1);
-        break;
-    }
-  };
-  const prev = () => {
-    switch (index) {
-      case 1:
-        setIndex(3);
-        break;
-      case 2:
-        setIndex(1);
-        break;
-      case 3:
-        setIndex(2);
-        break;
-    }
-  };
-  useEffect(() => {
-    changeIndex();
-  }, [index2]);
+  useEffect(() => {}, []);
+
+  useEffect(() => {}, [index2]);
 
   return (
     <>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 1, }}>
-        <Box className="img_container" width={width} height={height}>
-          <Image
-            src={imgs[`image${index}.jpg`]}
-            style={{ width: "100%", height: "100%", borderRadius: 5, }}
-            alt="אימונים"
-/>
-        </Box>
-        {showArrow ? <>
-          <Box
-          className="slider_btn"
-          sx={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            justifyContent: "center",
-            gap: 2,
-          }}
-        >
-          <Button
-            bgcolor="#1A1A1A"
-            onClick={next}
-            sx={{
-              transition: "1s",
-              ":hover": {
-                bgcolor: "#d12e27",
-              },
-            }}
-          >
-            <KeyboardDoubleArrowLeftIcon
-              sx={{
-                color: "#d12e27",
-                transition: "1s",
-                bgcolor: "#1A1A1A",
-              }}
-            />
-          </Button>
-          <Button
-            bgcolor="#1A1A1A"
-            onClick={next}
-            sx={{
-              transition: "1s",
-
-              ":hover": {
-                bgcolor: "#d12e27",
-              },
-            }}
-          >
-            <KeyboardDoubleArrowRightIcon
-              sx={{
-                color: "#d12e27",
-                transition: "1s",
-                bgcolor: "#1A1A1A",
-              }}
-            />
-          </Button>
-        </Box>
-        
-        </> : <></>}
-      
+      <Box className="navigation-wrapper" sx={{ width: width, padding: 1 }}>
+        <div dir="rtl" ref={sliderRef} className="keen-slider">
+          {img.map((image) => (
+            <>
+              <Box
+                className="keen-slider__slide "
+                height={height}
+                borderRadius={1}
+                key={image}
+              >
+                <Image
+                  style={{ borderRadius: 1 }}
+                  src={imgs[`${image}`]}
+                  fill={true}
+                  alt="error"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+              </Box>
+            </>
+          ))}
+        </div>
       </Box>
     </>
   );

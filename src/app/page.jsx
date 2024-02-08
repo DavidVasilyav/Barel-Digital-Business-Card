@@ -1,26 +1,17 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import {
-  Container,
-  Box,
-  Button,
-  ButtonGroup,
-  Paper,
-  Zoom,
-} from "@mui/material";
+import { Box, Button, ButtonGroup, Zoom } from "@mui/material";
 import styles from "./page.module.css";
 import Image from "next/image";
 import mainLogo from "@/public/img/main-logo.png";
 import Category from "@/components/category/Category";
-const trainingType = ["לפני אחרי", "לקוחות מרוצים", "ילדים"];
-import { CategoryIndictor } from "@/style/homepage.style";
 import Links from "@/components/links/Links";
 import Fade from "@mui/material/Fade";
 import Slide from "@mui/material/Slide";
-import BgAnimation from "@/components/bgAnimation/BgAnimation";
 import { TypeAnimation } from "react-type-animation";
+import { CategoryIndictor } from "@/style/homepage.style";
 import ArrowDropDownCircleTwoToneIcon from "@mui/icons-material/ArrowDropDownCircleTwoTone";
-import secondBackground from "@/public/img/secondBackground.jpg";
+const trainingType = ["לפני אחרי", "לקוחות מרוצים", "ילדים"];
 
 function Home() {
   const [display, setDisplay] = useState({
@@ -103,25 +94,18 @@ function Home() {
               height: 0,
               position: "relative",
               top: "80%",
+              gap: "10px",
               height: "800px",
             }}
-            dir="rtl"
             textAlign={"center"}
           >
-            <Box dir="ltr">
-              <Category
-                arrow={false}
-                width={250}
-                height={280}
-                pathToImg="לקוחות מרוצים"
-              />
-            </Box>
             <Zoom in={true} timeout={1000}>
               <Box
                 sx={{ fontSize: { xs: 20, md: 30 } }}
                 bgcolor={"#050505bc"}
                 p={1}
                 borderRadius={2}
+                dir="rtl"
               >
                 <TypeAnimation
                   sequence={[
@@ -136,8 +120,21 @@ function Home() {
                 />
               </Box>
             </Zoom>
-            <Box bgcolor={'#fff2'} width={200} m={1} borderRadius={2} >
-            <Links fadeIn={true} timeout={4000} />
+            <Box dir="ltr">
+              <Category
+                arrow={false}
+                width={400}
+                height={300}
+                pathToImg="לקוחות מרוצים"
+              />
+            </Box>
+            <Box
+              bgcolor={"#050505bc"}
+              width={200}
+              m={{ xs: 1, md: 0 }}
+              borderRadius={2}
+            >
+              <Links fadeIn={true} timeout={4000} />
             </Box>
             <Box className={styles.bounce}>
               <Slide direction="up" in={true} timeout={3000}>
@@ -177,6 +174,7 @@ function Home() {
             flexDirection: "column",
             alignItems: "center",
             backgroundColor: "#000000bf",
+            height: "100vh",
           }}
         >
           <Box className={styles.links} id="links_logo"></Box>
@@ -196,6 +194,7 @@ function Home() {
               }}
             >
               <ButtonGroup
+              key={'btn-group'}
                 sx={{
                   gap: 1,
                   mb: 2,
@@ -217,7 +216,7 @@ function Home() {
                         value={type}
                         onClick={updateState}
                         key={type.id}
-                        sx={{ borderColor: "red", }}
+                        sx={{ borderColor: "red" }}
                         dir="rtl"
                       >
                         {type}
@@ -233,11 +232,11 @@ function Home() {
                   flexDirection: "column",
                   alignItems: "center",
                   textAlign: "center",
-                  minHeight: 320
+                  minHeight: 320,
                 }}
               >
                 {display.kids ? (
-                  <Box >
+                  <Box>
                     <div dir="rtl">
                       <TypeAnimation
                         speed={65}
@@ -264,10 +263,10 @@ function Home() {
                       <TypeAnimation
                         cursor={false}
                         speed={75}
-                        style={{ whiteSpace: 'pre-line', display: 'block' }}
+                        style={{ whiteSpace: "pre-line", display: "block" }}
                         sequence={[
-                         ` ואיך אפשר בלי תוצאות של עבודה קשה של המתאמנים שלנו
-                           \nבעזרת ההדרכה האישית והמקצועית של בראל!`
+                          ` ואיך אפשר בלי תוצאות של עבודה קשה של המתאמנים שלנו
+                           \nבעזרת ההדרכה האישית והמקצועית של בראל!`,
                         ]}
                       />
                     </div>
@@ -285,11 +284,15 @@ function Home() {
                 )}
                 {display.reviews ? (
                   <>
-                    <TypeAnimation 
-                     cursor={false}
-                     speed={65}
-                     style={{ whiteSpace: 'pre-line', height: '50px', display: 'block' }}
-                    sequence={['ביקורות של המתאמנים האלופים שלנו']}
+                    <TypeAnimation
+                      cursor={false}
+                      speed={65}
+                      style={{
+                        whiteSpace: "pre-line",
+                        height: "50px",
+                        display: "block",
+                      }}
+                      sequence={["ביקורות של המתאמנים האלופים שלנו"]}
                     />
                     <Box className="category-gallery">
                       <Category
@@ -307,8 +310,8 @@ function Home() {
             </Box>
           </Zoom>
         </Box>
-          <div ref={bottomRef} />
-      </div >
+        <div ref={bottomRef} />
+      </div>
     </>
   );
 }
