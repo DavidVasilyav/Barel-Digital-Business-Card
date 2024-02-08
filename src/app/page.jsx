@@ -239,7 +239,6 @@ function Home() {
                   flexDirection: "column",
                   alignItems: "center",
                   textAlign: "center",
-                  minHeight: 320,
                 }}
               >
                 {display.kids ? (
@@ -255,7 +254,7 @@ function Home() {
                     <Box className="category-gallery">
                       <Category
                         arrow={true}
-                        width={450}
+                        width={{xs:400, sm: 450}}
                         height={300}
                         pathToImg="ילדים"
                       />
@@ -277,7 +276,7 @@ function Home() {
                         ]}
                       />
                     </div>
-                    <Box className="category-gallery">
+                    <Box className="category_gallery">
                       <Category
                         arrow={true}
                         width={450}
