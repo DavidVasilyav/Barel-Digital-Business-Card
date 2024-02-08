@@ -83,6 +83,7 @@ function Home() {
         }}
         onScroll={handleScroll}
       >
+        
         <Box className={styles.logo}>
           <Box
             className={styles.main_text}
@@ -95,10 +96,13 @@ function Home() {
               position: "relative",
               top: "80%",
               gap: "10px",
-              height: "800px",
+              height: "100vh",
             }}
             textAlign={"center"}
           >
+             <Fade in={true} timeout={1000}>
+            <Image src={mainLogo} alt="mainLogo" width={200} ></Image>
+          </Fade>
             <Zoom in={true} timeout={1000}>
               <Box
                 sx={{ fontSize: { xs: 18, md: 30 } }}
@@ -123,8 +127,8 @@ function Home() {
             <Box dir="ltr">
               <Category
                 arrow={false}
-                width={400}
-                height={300}
+                width={{xs:300, sm: 400}}
+                height={{xs:200, sm: 300}}
                 pathToImg="random"
               />
             </Box>

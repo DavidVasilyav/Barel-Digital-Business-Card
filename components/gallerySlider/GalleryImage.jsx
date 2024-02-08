@@ -57,7 +57,7 @@ export default function GalleryImage({ imgs, width, height, arrow }) {
 
   return (
     <>
-      <Box className="navigation-wrapper" sx={{ width: width, padding: 1 }}>
+      <Box className="navigation-wrapper" sx={{ width: width, padding: 1, }}>
         <div dir="rtl" ref={sliderRef} className="keen-slider">
           {img.map((image) => (
             <>
