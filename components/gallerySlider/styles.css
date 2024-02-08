@@ -12,6 +12,8 @@
 
 .navigation-wrapper {
   position: relative;
+  border-radius: 10px;
+  margin-top: 1px;
 }
 
 .dots {

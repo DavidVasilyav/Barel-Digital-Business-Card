@@ -124,7 +124,7 @@ function Home() {
                 />
               </Box>
             </Zoom>
-            <Box dir="ltr">
+            <Box className={styles.shadow} dir="ltr" >
               <Category
                 arrow={false}
                 width={{xs:300, sm: 400}}
@@ -134,7 +134,7 @@ function Home() {
             </Box>
             <Box
               bgcolor={"#050505bc"}
-              width={120}
+              width={175}
               m={{ xs: 1, sm: 0 }}
               borderRadius={2}
             >

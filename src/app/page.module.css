@@ -26,7 +26,10 @@
 .bounce {
   animation: 3s bounceIn 5s infinite;
 }
-
+.shadow {
+border: 4px solid rgba(255, 255, 255, 0.83);
+border-radius: 10px;
+}
 @keyframes bounceIn {
   0%,
   20%,
