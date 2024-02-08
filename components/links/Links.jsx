@@ -45,7 +45,7 @@ export default function Links({ fadeIn, timeout }) {
           }}
         >
         
-          <Box
+          {/* <Box
             sx={{
               border: "solid 0px #d12e27",
               transition: "border-width 0.3s linear",
@@ -63,7 +63,7 @@ export default function Links({ fadeIn, timeout }) {
                 className={styles.instagram_icon}
               />
             </Link>
-          </Box>
+          </Box> */}
 
           <Box
             sx={{
