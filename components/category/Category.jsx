@@ -36,7 +36,7 @@ useEffect(() => {
 
   return (
     <Zoom direction={direction} in={true} timeout={1000} >
-    <Box  mt={1} mb={2} >
+    <Box   >
     <GalleryImage arrow={arrow} width={width} height={height} imgs={images} />
     </Box>
     </Zoom>

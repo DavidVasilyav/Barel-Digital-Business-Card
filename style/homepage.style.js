@@ -2,14 +2,18 @@
 import styled from "@emotion/styled";
 export const CategoryIndictor = styled.nav`
 transition: 0.5s;
-border-bottom: ${({ active }) => 
+/* border-bottom: ${({ active }) => 
     active ? '5px solid red' : 'none' 
 
-    };
+    }; */
 background-color: ${({ active }) => 
-    active ? '#fff2' : 'none' 
+    active ? '#ff0000' : 'none' 
 
     };
-    border-radius: 5px;
+    color: ${({ active }) => 
+    active ? 'red' : 'red' 
+
+    };
+    border-radius: 20px;
 `;
 

@@ -3,7 +3,8 @@ import { useEffect, useState, useRef } from "react";
 import { Box, Button, ButtonGroup, Zoom } from "@mui/material";
 import styles from "./page.module.css";
 import Image from "next/image";
-import mainLogo from "@/public/img/main-logo.png";
+import mainLogoBright from "@/public/img/main-logo-bright.png";
+import circleLogo from '@/public/img/main-logo-black-circle.png'
 import Category from "@/components/category/Category";
 import Links from "@/components/links/Links";
 import Fade from "@mui/material/Fade";
@@ -78,13 +79,12 @@ function Home() {
         style={{
           height: "100vh",
           overflow: "auto",
-          borderRight: "4px solid red",
-          borderLeft: "4px solid red",
+          bgcolor:'red'
         }}
         onScroll={handleScroll}
       >
         
-        <Box className={styles.logo}>
+        <Box >
           <Box
             className={styles.main_text}
             sx={{
@@ -101,7 +101,7 @@ function Home() {
             textAlign={"center"}
           >
              <Fade in={true} timeout={1000}>
-            <Image src={mainLogo} alt="mainLogo" width={200} ></Image>
+            <Image src={circleLogo} alt="mainLogoBright" width={200} />
           </Fade>
             <Zoom in={true} timeout={1000}>
               <Box
@@ -128,14 +128,14 @@ function Home() {
               <Category
                 arrow={false}
                 width={{xs:300, sm: 400}}
-                height={{xs:200, sm: 300}}
+                height={{xs:200, sm: 220}}
                 pathToImg="random"
               />
             </Box>
             <Box
               bgcolor={"#050505bc"}
               width={120}
-              m={{ xs: 1, md: 0 }}
+              m={{ xs: 1, sm: 0 }}
               borderRadius={2}
             >
               <Links fadeIn={true} timeout={4000} />
@@ -147,7 +147,6 @@ function Home() {
                   bgcolor={"#050505bc"}
                   p={1}
                   borderRadius={2}
-                  mt={2}
                   sx={{
                     fontSize: { xs: 11, md: 15 },
                   }}
@@ -177,13 +176,14 @@ function Home() {
             justifyContent: "space-evenly",
             flexDirection: "column",
             alignItems: "center",
-            backgroundColor: "#000000bf",
             height: "100vh",
+            borderRight: "4px solid red",
+            borderLeft: "4px solid red",
+  
           }}
         >
-          <Box className={styles.links} id="links_logo"></Box>
           <Fade in={showLogo} timeout={3000}>
-            <Image src={mainLogo} alt="mainLogo" height={200}></Image>
+            <Image src={mainLogoBright} alt="mainLogoBright" height={200}></Image>
           </Fade>
 
           <Links fadeIn={showLogo} timeout={4500} />
@@ -195,20 +195,21 @@ function Home() {
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
+                p:1
               }}
             >
+              <Box bgcolor={"#000000db"} height={36} borderRadius={5} mb={1.5}>
               <ButtonGroup
               key={'btn-group'}
                 sx={{
                   gap: 1,
-                  mb: 2,
                   ".MuiButtonGroup-grouped": {
                     borderColor: "transparent",
                     "&:hover": {
                       backgroundColor: "transparent",
-                      color: "#f21a17",
+                      color: "#fffffeb8",
                     },
-                    color: " #fffffe",
+                    color: "#ffffff",
                   },
                 }}
                 variant="text"
@@ -229,6 +230,8 @@ function Home() {
                   </>
                 ))}
               </ButtonGroup>
+              </Box>
+
               <Box
                 className="gallery"
                 sx={{

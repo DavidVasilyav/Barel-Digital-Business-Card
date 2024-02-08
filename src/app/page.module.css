@@ -1,12 +1,27 @@
-.logo {
+.main_box {
   min-height: 100vh;
   width: 100%;
   display: flex;
-  /* justify-content: center; */
   justify-content: center;
   align-items: center;
+  background-image: url(../../public/img/main-logo.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
 }
-
+.main_text{
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../public/img/secondBackground.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
 /*  */
 .bounce {
   animation: 3s bounceIn 5s infinite;
