@@ -279,7 +279,7 @@ function Home() {
                     <Box className="category_gallery">
                       <Category
                         arrow={true}
-                        width={450}
+                        width={{xs:400, sm: 450}}
                         height={300}
                         pathToImg="לפני אחרי"
                       />
@@ -303,7 +303,7 @@ function Home() {
                     <Box className="category-gallery">
                       <Category
                         arrow={true}
-                        width={450}
+                        width={{xs:400, sm: 450}}
                         height={300}
                         pathToImg="לקוחות מרוצים"
                       />

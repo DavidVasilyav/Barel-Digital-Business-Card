@@ -8,11 +8,8 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "./styles.css";
-const animation = { duration: 20000, easing: (t) => t };
 
 export default function GalleryImage({ imgs, width, height, arrow }) {
-  const [index, setIndex] = useState(1);
-  const [index2, setIndex2] = useState(1);
   const [sliderRef, instanceRef] = useKeenSlider(
     {
       loop: true,
@@ -53,8 +50,6 @@ export default function GalleryImage({ imgs, width, height, arrow }) {
 
   useEffect(() => {}, []);
 
-  useEffect(() => {}, [index2]);
-
   return (
     <>
       <Box className="navigation-wrapper" sx={{ width: width, }}>
@@ -64,7 +59,6 @@ export default function GalleryImage({ imgs, width, height, arrow }) {
               <Box
                 className="keen-slider__slide "
                 height={height}
-                borderRadius={1}
                 key={image}
               >
                 <Image

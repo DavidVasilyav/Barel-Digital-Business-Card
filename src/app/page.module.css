@@ -28,6 +28,7 @@
 }
 .shadow {
 border: 4px solid rgba(255, 255, 255, 0.83);
+border-radius: 10px;
 }
 
 @keyframes bounceIn {
