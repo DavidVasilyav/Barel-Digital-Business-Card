@@ -101,7 +101,7 @@ function Home() {
           >
             <Zoom in={true} timeout={1000}>
               <Box
-                sx={{ fontSize: { xs: 20, md: 30 } }}
+                sx={{ fontSize: { xs: 18, md: 30 } }}
                 bgcolor={"#050505bc"}
                 p={1}
                 borderRadius={2}
