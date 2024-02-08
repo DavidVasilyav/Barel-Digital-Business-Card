@@ -130,7 +130,7 @@ function Home() {
             </Box>
             <Box
               bgcolor={"#050505bc"}
-              width={200}
+              width={120}
               m={{ xs: 1, md: 0 }}
               borderRadius={2}
             >
