@@ -84,7 +84,7 @@ function Home() {
         onScroll={handleScroll}
       >
         
-        <Box >
+        <Box overflow={'hidden'}>
           <Box
             className={styles.main_text}
             sx={{
@@ -133,7 +133,6 @@ function Home() {
               />
             </Box>
             <Box
-              bgcolor={"#050505bc"}
               width={175}
               m={{ xs: 1, sm: 0 }}
               borderRadius={2}
