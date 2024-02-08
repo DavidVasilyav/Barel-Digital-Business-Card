@@ -22,6 +22,9 @@ const returnPhotos = () => {
   }if (pathToImg === 'לקוחות מרוצים') {
     return images = importAll(require.context(`../../src/app/img/reviews`, false, ));
  
+   } if(pathToImg === 'random'){
+    return images = importAll(require.context(`../../src/app/img/random`, false, ));
+
    }
 
 }

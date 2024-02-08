@@ -125,7 +125,7 @@ function Home() {
                 arrow={false}
                 width={400}
                 height={300}
-                pathToImg="לקוחות מרוצים"
+                pathToImg="random"
               />
             </Box>
             <Box
