@@ -127,8 +127,8 @@ function Home() {
             <Box className={styles.shadow} dir="ltr" >
               <Category
                 arrow={false}
-                width={{xs:300, sm: 400}}
-                height={{xs:200, sm: 220}}
+                width={{xs:320, sm: 350, md: 400}}
+                height={{xs:190, md: 220}}
                 pathToImg="random"
               />
             </Box>
