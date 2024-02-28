@@ -99,11 +99,11 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", onScroll, { passive: true });
+    // window.addEventListener("scroll", onScroll, { passive: true });
     // checkIfIphone()
-    return () => {
-      window.removeEventListener("scroll", onScroll, { passive: true });
-    };
+    // return () => {
+      // window.removeEventListener("scroll", onScroll, { passive: true });
+    // };
   }, [display, category, showLogo, bgAttachment]);
   return (
     <>
@@ -132,12 +132,16 @@ function Home() {
             }}
             textAlign={"center"}
           >
-            <Fade in={true} timeout={1000}>
+
+            <Fade  in={true} timeout={1000}>
+              <Box mt={{xs: 0, md: 1}}>
+
               <Image src={circleLogo} alt="mainLogoBright" width={200} />
+              </Box>
             </Fade>
             <Zoom in={true} timeout={1000}>
               <Box
-                sx={{ fontSize: { xs: 18, md: 30 } }}
+                sx={{ fontSize: { xs: 18, md: 20 } }}
                 bgcolor={"#050505bc"}
                 p={1}
                 borderRadius={2}
@@ -160,14 +164,14 @@ function Home() {
               <Category
                 arrow={false}
                 width={{ xs: 300, sm: 350, md: 400 }}
-                height={{ xs: 250, sm: 300, md: 350 }}
+                height={{ xs: 250, sm: 260, md: 240 }}
                 pathToImg="random"
               />
             </Box>
             <Box width={175} m={{ xs: 1, sm: 0 }} borderRadius={2}>
               <Links fadeIn={true} timeout={4000} />
             </Box>
-            <Box className={styles.bounce}>
+            <Box  className={styles.bounce}>
               <Slide direction="up" in={true} timeout={3000}>
                 <Box
                   dir="rtl"
@@ -175,7 +179,7 @@ function Home() {
                   p={1}
                   borderRadius={2}
                   sx={{
-                    fontSize: { xs: 11, md: 15 },
+                    fontSize: { xs: 11, md: 13 },
                   }}
                 >
                   <h2> לפרטים נוספים גלגלו למטה!</h2>
@@ -207,14 +211,18 @@ function Home() {
             height: "100vh",
             borderRight: "4px solid red",
             borderLeft: "4px solid red",
+            gap: 4
           }}
         >
           <Fade in={showLogo} timeout={3000}>
+            <Box pt={2}>
+
             <Image
               src={mainLogoBright}
               alt="mainLogoBright"
               height={200}
-            ></Image>
+              ></Image>
+              </Box>
           </Fade>
 
           <Links fadeIn={showLogo} timeout={4500} />
@@ -270,6 +278,7 @@ function Home() {
                   flexDirection: "column",
                   alignItems: "center",
                   textAlign: "center",
+                  mt:{xs:5, md:0}
                 }}
               >
                 {display.kids ? (
@@ -284,7 +293,6 @@ function Home() {
                     </div>
                     <Box className="category-gallery">
                       <Category
-                        mt={1}
                         arrow={true}
                         width={{ xs: 300, sm: 350, md: 400 }}
                         height={{ xs: 250, sm: 300, md: 350 }}
