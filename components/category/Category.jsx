@@ -10,7 +10,7 @@ function importAll(r) {
     return images
    }
 
-function Category({pathToImg, width,height,arrow, direction}) {
+function Category({pathToImg, width,height,arrow, direction, mt}) {
   // const images = importAll(require.context(`../../src/app/img/kids`, false, ));
  let images = 'ילדים';
 const returnPhotos = () => {
@@ -37,7 +37,7 @@ useEffect(() => {
   return (
     <Zoom direction={direction} in={true} timeout={1000} >
     <Box   >
-    <GalleryImage arrow={arrow} width={width} height={height} imgs={images} />
+    <GalleryImage mt={mt} arrow={arrow} width={width} height={height} imgs={images} />
     </Box>
     </Zoom>
   )

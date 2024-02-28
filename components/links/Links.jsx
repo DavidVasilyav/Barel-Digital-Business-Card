@@ -30,7 +30,6 @@ const category = [
   },
 ];
 export default function Links({ fadeIn, timeout }) {
-  console.log(timeout);
   return (
     <>
       <Fade in={fadeIn} timeout={timeout}>

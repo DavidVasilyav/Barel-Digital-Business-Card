@@ -9,7 +9,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "./styles.css";
 
-export default function GalleryImage({ imgs, width, height, arrow }) {
+export default function GalleryImage({ imgs, width, height, arrow, mt}) {
   const [sliderRef, instanceRef] = useKeenSlider(
     {
       loop: true,
@@ -60,6 +60,7 @@ export default function GalleryImage({ imgs, width, height, arrow }) {
                 className="keen-slider__slide "
                 height={height}
                 key={image}
+                mt={mt}
               >
                 <Image
                   style={{ borderRadius: 5 }}
